@@ -13,6 +13,13 @@ const options = (aspsp) => {
         Authorization: localStorage.getItem('token'),
       },
     };
+  } else if (localStorage.getItem('token')) {
+    return {
+      headers: {
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+    };
   }
   return {
     headers: {

@@ -50,6 +50,7 @@ export default {
         p: this.password,
       });
       if (this.$store.getters.isLoggedIn()) {
+        await this.$store.dispatch('fetchAspsps');
         await this.$store.dispatch('populateAccounts');
         this.$router.push('aspsp-selection');
       }
