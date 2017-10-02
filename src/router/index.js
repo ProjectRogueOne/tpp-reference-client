@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Accounts from '@/components/Accounts';
+import AspspSelection from '@/components/AspspSelection';
 import Login from '@/components/Login';
 
 Vue.use(Router);
@@ -12,6 +13,11 @@ const router = new Router({
       path: '/accounts',
       name: 'Accounts',
       component: Accounts,
+    },
+    {
+      path: '/aspsp-selection',
+      name: 'AspspSelection',
+      component: AspspSelection,
     },
     {
       path: '/',

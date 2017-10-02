@@ -51,7 +51,7 @@ export default {
       });
       if (this.$store.getters.isLoggedIn()) {
         await this.$store.dispatch('populateAccounts');
-        this.$router.push('accounts');
+        this.$router.push('aspsp-selection');
       }
     },
   },
