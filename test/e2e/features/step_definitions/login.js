@@ -12,6 +12,7 @@ defineSupportCode(({ Given, Then, When }) => { // eslint-disable-line
 
   Given('I am logged in', () => client
     .url(devServer)
+    .execute('window.localStorage.clear();') // clear local storage to remove any session tokens
     .waitForElementVisible('button[name=login]', 5000)
     .click('button[name=login]'));
 
@@ -62,7 +63,8 @@ defineSupportCode(({ Given, Then, When }) => { // eslint-disable-line
     .click('button[name=logout]'));
 
   Then('I see Accounts page', () => client
-    .url(accountsPath)
+    // .url(accountsPath)
+    // .pause(20000)
     .waitForElementVisible('#accounts', 5000)
     .assert.containsText(
       'h1',

@@ -2,6 +2,7 @@
   <div id="accounts">
     <div class="ui container">
       <h1 class="ui aligned header">Accounts</h1>
+      <div class="ui hidden divider"></div>
       <div class="ui error message" v-if="sessionExpired">
         <div class="header">Your session has expired</div>
         <p>Please <a href="/">login</a> again.</p>

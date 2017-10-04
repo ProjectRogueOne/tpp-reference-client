@@ -23,7 +23,20 @@ const mutations = {
     Vue.set(state, 'pending', true);
   },
   [ASPSPS_SUCCESS](state, payload) {
-    Vue.set(state, 'aspsps', payload.Resources);
+    const aspsps = payload.Resources;
+    // sort alphabetically by name
+    aspsps.sort((a, b) => {
+      if (a.AuthorisationServers[0].CustomerFriendlyName
+        > b.AuthorisationServers[0].CustomerFriendlyName) {
+        return 1;
+      } else if (a.AuthorisationServers[0].CustomerFriendlyName
+        > b.AuthorisationServers[0].CustomerFriendlyName) {
+        return -1;
+      }
+      return 0;
+    });
+
+    Vue.set(state, 'aspsps', aspsps);
     Vue.set(state, 'pending', false);
   },
 };
