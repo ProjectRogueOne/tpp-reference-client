@@ -23,12 +23,9 @@ const actions = {
     return commit(types.LOGOUT);
   },
   async populateAccounts({ dispatch, getters }) {
-    console.log('start.....');
     await dispatch('fetchAccounts');
-    console.log('fetch all.....');
     const accountIds = getters.accountIds(aspsp);
     accountIds.forEach(async (accountId) => {
-      console.log('fetch details.....');
       await dispatch('fetchAccountProduct', accountId);
       await dispatch('fetchAccountBalances', accountId);
     });
