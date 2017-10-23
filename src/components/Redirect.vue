@@ -6,6 +6,8 @@
 </template>
 
 <script>
+const redirectionTime = (process.env.REDIR_TIME || 3);
+
 export default {
   name: 'redirect',
   data() {
@@ -16,7 +18,7 @@ export default {
   mounted() {
     window.setTimeout(() => {
       this.$router.push('accounts');
-    }, 5000);
+    }, redirectionTime * 1000);
   },
 };
 </script>
