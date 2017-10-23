@@ -32,8 +32,11 @@ export default {
     aspsp() {
       return 'abcbank';
     },
+    currentAspsp() {
+      return this.$store.selectedAspsp;
+    },
     aspspName() {
-      return this.$store.selectedAspsp.name;
+      return this.currentAspsp.name;
     },
     accounts() {
       const accounts = this.$store.getters.accounts(this.aspsp);
@@ -42,6 +45,11 @@ export default {
       }
       return accounts;
     },
+  },
+  mounted() {
+    if (!this.currentAspsp) {
+      this.$router.push('aspsp-selection');
+    }
   },
 };
 </script>

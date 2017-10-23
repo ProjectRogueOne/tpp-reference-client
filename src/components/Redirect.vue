@@ -16,9 +16,13 @@ export default {
     };
   },
   mounted() {
-    window.setTimeout(() => {
-      this.$router.push('accounts');
-    }, redirectionTime * 1000);
+    if (!this.currentAspsp) {
+      this.$router.push('aspsp-selection');
+    } else {
+      window.setTimeout(() => {
+        this.$router.push('accounts');
+      }, redirectionTime * 1000);
+    }
   },
 };
 </script>
