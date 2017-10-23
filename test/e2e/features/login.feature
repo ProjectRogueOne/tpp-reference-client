@@ -7,9 +7,8 @@ Scenario: Logging in and out
   Then I see Login page
   When I login
   And I select an ASPSP
-  Then I see Accounts page
-  And I see Account balance
-  When I reload page
+  Then I see Redirection page
+  When I wait some time
   Then I see Accounts page
   And I see Account balance
   When I logout

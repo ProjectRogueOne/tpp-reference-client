@@ -1,5 +1,5 @@
 <template>
-  <div class="ui warning message" >
+  <div id="redirect" class="ui warning message" >
     <div class="header">Redirection</div>
     <p>You are now leaving (TPP) and we are securely<br />transfering you over to {{ currentAspsp.name }}</p>
   </div>
