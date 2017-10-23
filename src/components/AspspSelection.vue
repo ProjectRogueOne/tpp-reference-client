@@ -10,15 +10,18 @@
          </aspsp-select>
        </div>
     </div>
+    <div class="ui hidden divider"></div>
+    <logout></logout>
   </div>
 </template>
 
 <script>
 import AspspSelect from './AspspSelect';
+import Logout from './Logout';
 
 export default {
   name: 'aspsp-selection',
-  components: { AspspSelect },
+  components: { AspspSelect, Logout },
   computed: {
     aspsps() {
       const aspsps = this.$store.getters.aspsps();

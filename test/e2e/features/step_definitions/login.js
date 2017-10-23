@@ -64,7 +64,7 @@ defineSupportCode(({ Given, Then, When }) => { // eslint-disable-line
     .click('button[name=logout]'));
 
   Then('I see Redirection page', () => client
-    .waitForElementVisible('#redirect', 500)
+    .waitForElementVisible('#redirect', 300)
     .assert.containsText(
       'div.header',
       'Redirection',
