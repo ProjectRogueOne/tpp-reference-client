@@ -1,7 +1,7 @@
 <template>
   <div id="accounts">
     <div class="ui container">
-      <h1 class="ui aligned header">Accounts</h1>
+      <h1 class="ui aligned header">Accounts from {{ aspspName }}</h1>
       <div class="ui hidden divider"></div>
       <div class="ui error message" v-if="sessionExpired">
         <div class="header">Your session has expired</div>
@@ -31,6 +31,9 @@ export default {
     },
     aspsp() {
       return 'abcbank';
+    },
+    aspspName() {
+      return this.$store.selectedAspsp.name;
     },
     accounts() {
       const accounts = this.$store.getters.accounts(this.aspsp);

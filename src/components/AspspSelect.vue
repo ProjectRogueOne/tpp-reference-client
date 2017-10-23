@@ -6,7 +6,7 @@
     </div>
     <div class="middle aligned content">
       <div class="header">
-        <a class="select-aspsp" v-on:click="selectAspsp">{{ name }}</a>
+        <a class="select-aspsp" v-on:click="selectAspsp(aspsp)" >{{ name }}</a>
       </div>
     </div>
     <div class="ui hidden divider"></div>
@@ -23,8 +23,9 @@ export default {
     },
   },
   methods: {
-    selectAspsp() {
-      this.$router.push('accounts');
+    selectAspsp(selectedAspsp) {
+      this.$store.selectedAspsp = selectedAspsp;
+      this.$router.push('redirect');
     },
   },
 };

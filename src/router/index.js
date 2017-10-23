@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Accounts from '@/components/Accounts';
 import AspspSelection from '@/components/AspspSelection';
 import Login from '@/components/Login';
+import Redirect from '@/components/Redirect';
 
 Vue.use(Router);
 
@@ -23,6 +24,11 @@ const router = new Router({
       path: '/',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/redirect',
+      name: 'Redirect',
+      component: Redirect,
     },
   ],
 });
