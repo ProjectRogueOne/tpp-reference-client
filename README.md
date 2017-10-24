@@ -1,4 +1,4 @@
-# Open Banking Sample TPP Client
+# TPP reference client
 
 This project contains a sample web application that integrates with the
 [Open Banking Read/Write API](https://www.openbanking.org.uk/read-write-apis/)
@@ -7,7 +7,7 @@ application was initially generated using `vue init pwa` to run the
 [vue-cli](https://github.com/vuejs/vue-cli) scaffold tool with a
 [Progressive Web Apps template](https://github.com/vuejs-templates/pwa).
 
-## Build Setup
+## Build setup
 
 ```bash
 # install dependencies
@@ -23,7 +23,7 @@ npm run build --report
 npm run unit
 ```
 
-## Running the app locally / Integration tests
+## Running the app locally / integration tests
 
 To run the app and or the integration tests, you must have the following servers
 installed and running locally:

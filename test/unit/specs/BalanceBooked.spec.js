@@ -1,45 +1,20 @@
 import Vue from 'vue';
 import BalanceBooked from '@/components/BalanceBooked';
-
-const trim = s => (s || '').replace(/^\s+|\s+$/g, '');
+import balanceData from './BalanceData';
 
 const balanceText = (balances) => {
   const Constructor = Vue.extend(BalanceBooked);
   const vm = new Constructor({ propsData: { balances } }).$mount();
-  return trim(vm.$el.textContent);
+  return vm.$el.textContent;
 };
 
-const singleBalance = (amount, type) => balanceText([
-  {
-    Amount: {
-      Amount: amount,
-      Currency: 'GBP',
-    },
-    CreditDebitIndicator: 'Credit',
-    Type: type,
-    DateTime: '2017-04-05T10:43:07+00:00',
-  },
+const singleBalance = (amount, type, direction = 'Credit') => balanceText([
+  balanceData(amount, type, direction),
 ]);
 
 const doubleBalance = (amount, type, datetime, amount2, type2, datetime2) => balanceText([
-  {
-    Amount: {
-      Amount: amount,
-      Currency: 'GBP',
-    },
-    CreditDebitIndicator: 'Credit',
-    Type: type,
-    DateTime: datetime,
-  },
-  {
-    Amount: {
-      Amount: amount2,
-      Currency: 'GBP',
-    },
-    CreditDebitIndicator: 'Credit',
-    Type: type2,
-    DateTime: datetime2,
-  },
+  balanceData(amount, type, 'Credit', datetime),
+  balanceData(amount2, type2, 'Credit', datetime2),
 ]);
 
 describe('BalanceBooked.vue with no booked balance', () => {
@@ -57,12 +32,21 @@ describe('BalanceBooked.vue with single balance that is not a booked balance', (
   });
 });
 
-describe('BalanceBooked.vue with one booked balance', () => {
+describe('BalanceBooked.vue with one booked credit balance', () => {
   it('renders amount', () => {
     expect(singleBalance(22290, 'ClosingBooked')).to.equal('£22,290.00');
     expect(singleBalance(22290, 'InterimBooked')).to.equal('£22,290.00');
     expect(singleBalance(22290, 'OpeningBooked')).to.equal('£22,290.00');
     expect(singleBalance(22290, 'PreviouslyClosedBooked')).to.equal('£22,290.00');
+  });
+});
+
+describe('BalanceBooked.vue with one booked debit balance', () => {
+  it('renders amount', () => {
+    expect(singleBalance(22290, 'ClosingBooked', 'Debit')).to.equal('-£22,290.00');
+    expect(singleBalance(22290, 'InterimBooked', 'Debit')).to.equal('-£22,290.00');
+    expect(singleBalance(22290, 'OpeningBooked', 'Debit')).to.equal('-£22,290.00');
+    expect(singleBalance(22290, 'PreviouslyClosedBooked', 'Debit')).to.equal('-£22,290.00');
   });
 });
 
