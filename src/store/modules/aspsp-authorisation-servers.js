@@ -5,10 +5,12 @@ import {
   ASPSPS_FETCH,
   ASPSPS_SUCCESS,
   LOGOUT,
+  SELECT_ASPSP,
 } from '../mutation-types';
 
 const initialState = {
   aspsps: [],
+  selectedAspsp: null,
   pending: false,
 };
 
@@ -25,6 +27,9 @@ const mutations = {
   [ASPSPS_SUCCESS](state, payload) {
     Vue.set(state, 'aspsps', payload);
     Vue.set(state, 'pending', false);
+  },
+  [SELECT_ASPSP](state, aspsp) {
+    Vue.set(state, 'selectedAspsp', aspsp);
   },
 };
 
@@ -51,6 +56,9 @@ const actions = {
       return commit(ASPSPS_SUCCESS, list);
     }
     return dispatch('deleteSession');
+  },
+  selectAspsp({ commit }, aspsp) {
+    commit(SELECT_ASPSP, aspsp);
   },
 };
 

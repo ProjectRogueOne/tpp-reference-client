@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     selectAspsp(selectedAspsp) {
-      this.$store.selectedAspsp = selectedAspsp;
+      this.$store.dispatch('selectAspsp', selectedAspsp);
       this.$router.push('redirect');
     },
   },

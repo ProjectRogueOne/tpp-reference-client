@@ -12,7 +12,7 @@ export default {
   name: 'redirect',
   data() {
     return {
-      currentAspsp: this.$store.selectedAspsp,
+      currentAspsp: this.$store.state.aspspAuthorisationServers.selectedAspsp,
     };
   },
   mounted() {
