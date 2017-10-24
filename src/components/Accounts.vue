@@ -33,7 +33,7 @@ export default {
       return 'abcbank';
     },
     currentAspsp() {
-      return this.$store.state.aspspAuthorisationServers.selectedAspsp;
+      return this.$store.getters.getSelectedAspsp();
     },
     aspspName() {
       return this.currentAspsp.name;

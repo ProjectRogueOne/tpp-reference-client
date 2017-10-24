@@ -18,6 +18,9 @@ const getters = {
   aspsps: state => () => { // eslint-disable-line
     return state.aspsps;
   },
+  getSelectedAspsp: state => () => { // eslint-disable-line
+    return state.selectedAspsp;
+  },
 };
 
 const mutations = {
