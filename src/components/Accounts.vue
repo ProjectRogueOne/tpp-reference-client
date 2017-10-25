@@ -1,7 +1,7 @@
 <template>
   <div id="accounts">
     <div class="ui container">
-      <h1 class="ui aligned header">Accounts from {{ aspspName }}</h1>
+      <h1 class="ui aligned header">Accounts from {{ currentAspsp.name }}</h1>
       <div class="ui hidden divider"></div>
       <div class="ui error message" v-if="sessionExpired">
         <div class="header">Your session has expired</div>
@@ -33,10 +33,7 @@ export default {
       return 'abcbank';
     },
     currentAspsp() {
-      return this.$store.getters.getSelectedAspsp();
-    },
-    aspspName() {
-      return this.currentAspsp.name;
+      return this.$store.getters.selectedAspsp();
     },
     accounts() {
       const accounts = this.$store.getters.accounts(this.aspsp);
@@ -46,7 +43,8 @@ export default {
       return accounts;
     },
   },
-  mounted() {
+  beforeMount() {
+    this.$store.dispatch('refreshSelectedAspsp');
     if (!this.currentAspsp) {
       this.$router.push('aspsp-selection');
     }

@@ -18,7 +18,7 @@ const getters = {
   aspsps: state => () => { // eslint-disable-line
     return state.aspsps;
   },
-  getSelectedAspsp: state => () => { // eslint-disable-line
+  selectedAspsp: state => () => { // eslint-disable-line
     return state.selectedAspsp;
   },
 };
@@ -61,7 +61,21 @@ const actions = {
     return dispatch('deleteSession');
   },
   selectAspsp({ commit }, aspsp) {
-    commit(SELECT_ASPSP, aspsp);
+    localStorage.setItem('selectedAspsp', JSON.stringify(aspsp));
+    return commit(SELECT_ASPSP, aspsp);
+  },
+  refreshSelectedAspsp({ commit }) {
+    if (localStorage.getItem('selectedAspsp')) {
+      let localAspsp;
+      try {
+        localAspsp = JSON.parse(localStorage.getItem('selectedAspsp'));
+      } catch (e) {
+        localStorage.removeItem('selectedAspsp');
+        localAspsp = null;
+      } finally {
+        commit(SELECT_ASPSP, localAspsp);
+      }
+    }
   },
 };
 

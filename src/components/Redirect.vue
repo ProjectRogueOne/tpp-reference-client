@@ -10,12 +10,13 @@ const redirectionTime = (process.env.REDIR_TIME || 3);
 
 export default {
   name: 'redirect',
-  data() {
-    return {
-      currentAspsp: this.$store.getters.getSelectedAspsp(),
-    };
+  computed: {
+    currentAspsp() {
+      return this.$store.getters.selectedAspsp();
+    },
   },
-  mounted() {
+  beforeMount() {
+    this.$store.dispatch('refreshSelectedAspsp');
     if (!this.currentAspsp) {
       this.$router.push('aspsp-selection');
     } else {

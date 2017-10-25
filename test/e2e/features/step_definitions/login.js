@@ -72,6 +72,11 @@ defineSupportCode(({ Given, Then, When }) => { // eslint-disable-line
 
   When('I wait some time', () => {});
 
+  When('System removes selected aspsp from LocalStore', () => client
+    .execute(() => {
+      window.localStorage.removeItem('selectedAspsp');
+    }));
+
   Then('I see Accounts page', () => client
     .waitForElementVisible('#accounts', 5000)
     .assert.containsText(
