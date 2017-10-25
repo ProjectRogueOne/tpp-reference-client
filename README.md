@@ -1,11 +1,16 @@
-# TPP reference client
+# TPP Reference Client
 
-This project contains a sample web application that integrates with the
+This project contains a
+[reference web application](https://github.com/OpenBankingUK/reference-applications/blob/master/tpp-reference-applications.md)
+that integrates with the
 [Open Banking Read/Write API](https://www.openbanking.org.uk/read-write-apis/)
 to retrieve a customer's account balances. The [Vue.js](https://vuejs.org)
 application was initially generated using `vue init pwa` to run the
 [vue-cli](https://github.com/vuejs/vue-cli) scaffold tool with a
 [Progressive Web Apps template](https://github.com/vuejs-templates/pwa).
+
+For more background, read this
+[Third Party Provider (TPP) Reference Applications overview](https://github.com/OpenBankingUK/reference-applications/blob/master/tpp-reference-applications.md).
 
 ## Build setup
 
@@ -27,8 +32,8 @@ npm run unit
 
 To run the app and or the integration tests, you must have the following servers
 installed and running locally:
-* [sample-tpp-server](https://github.com/OpenBankingUK/sample-tpp-server) - provides app API
-* [readwrite-api-mock-server](https://github.com/OpenBankingUK/readwrite-api-mock-server) - mocks ASPSP API
+* [tpp-reference-server](https://github.com/OpenBankingUK/tpp-reference-server) - provides app API
+* [reference-mock-server](https://github.com/OpenBankingUK/reference-mock-server) - mocks ASPSP and OB Directory API endpoints
 
 To the app run locally run:
 

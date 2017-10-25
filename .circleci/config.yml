@@ -24,9 +24,9 @@ jobs:
             sudo apt-get install -t jessie-backports openjdk-8-jdk
       - restore_cache:
           keys:
-          - v6-dependencies-{{ checksum "package.json" }}
+          - v7-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
-          - v6-dependencies-
+          - v7-dependencies-
       - run:
           name: Local npm install
           command: npm install
@@ -36,7 +36,11 @@ jobs:
           key: v6-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run e2e tests against server set in API_BASE_URL env var.
+<<<<<<< HEAD
           command: API_BASE_URL=https://sample-tpp-server.herokuapp.com/open-banking/v1.1 REDIRECT_DELAY_SECONDS=1 npm run e2e
+=======
+          command: API_BASE_URL=https://tpp-reference-server.herokuapp.com/open-banking/v1.1 npm run e2e
+>>>>>>> abb6e22944eaa7c14bd8003d2939de9b717f0195
       - run:
           name: Run unit tests
           command: npm run unit
