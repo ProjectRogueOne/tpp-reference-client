@@ -1,6 +1,6 @@
 {
-  "name": "sample-tpp-client-vue",
-  "version": "0.1.0",
+  "name": "tpp-reference-client",
+  "version": "0.2.0",
   "description": "View account balance reference TPP application",
   "author": "Open Banking Limited",
   "private": true,
