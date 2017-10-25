@@ -9,5 +9,5 @@ const stringify = (val) => {
 module.exports = {
   NODE_ENV: '"production"',
   API_BASE_URL: stringify(process.env.API_BASE_URL),
-  REDIR_TIME: process.env.REDIR_TIME,
+  REDIRECT_DELAY_SECONDS: process.env.REDIRECT_DELAY_SECONDS,
 }

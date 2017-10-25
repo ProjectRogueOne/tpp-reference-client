@@ -6,7 +6,7 @@
 </template>
 
 <script>
-const redirectionTime = (process.env.REDIR_TIME || 3);
+const redirectionTime = (process.env.REDIRECT_DELAY_SECONDS || 3);
 
 export default {
   name: 'redirect',

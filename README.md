@@ -41,7 +41,7 @@ To run the end to end tests run
 
 ```bash
 # run e2e tests with development configuration for faster startup
-TEST=e2e NODE_ENV=development npm run e2e
+TEST=e2e REDIRECT_DELAY_SECONDS=1 NODE_ENV=development npm run e2e
 
 # run e2e tests with production configuration - slower startup
 npm run e2e

@@ -36,7 +36,7 @@ jobs:
           key: v6-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run e2e tests against server set in API_BASE_URL env var.
-          command: API_BASE_URL=https://sample-tpp-server.herokuapp.com/open-banking/v1.1 npm run e2e
+          command: API_BASE_URL=https://sample-tpp-server.herokuapp.com/open-banking/v1.1 REDIRECT_DELAY_SECONDS=1 npm run e2e
       - run:
           name: Run unit tests
           command: npm run unit
